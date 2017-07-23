@@ -3,10 +3,10 @@ export default {
   username: '',
   password: '',
   params: {
-      dialect: 'sqlite',
-      storage: 'books.sqlite',
-      define: {
-          underscored: true
-      }
-  }
+    dialect: 'sqlite',
+    storage: 'books.sqlite',
+    define: {
+      underscored: true,
+    },
+  },
 };
