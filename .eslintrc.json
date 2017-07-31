@@ -4,6 +4,7 @@
         "describe": true,
         "it": true,
         "expect": true,
+        "td": true,
         "request": true,
         "beforeEach": true,
         "app": true
