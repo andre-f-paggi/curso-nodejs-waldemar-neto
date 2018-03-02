@@ -14,8 +14,8 @@ class BooksController {
 
   getAll() {
     return this.Books.findAll({})
-          .then(result => defaultResponse(result))
-          .catch(error => errorResponse(error.message));
+      .then(result => defaultResponse(result))
+      .catch(error => errorResponse(error.message));
   }
 }
 

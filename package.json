@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js",
-    "test-unit": "mocha --opts test/unit/mocha.opts test/unit/**/*.js",
+    "test": "echo \"Error: choose 'test-unit' or 'test-integration' command\" && exit 1",
+    "test-integration": "nyc --reporter=html --reporter=text mocha --opts test/integration/mocha.opts test/integration/*.js",
+    "test-unit": "nyc --reporter=html --reporter=text mocha --opts test/unit/mocha.opts test/unit/**/*.js",
     "lint": "eslint **/*.js",
-    "lint:fix": "eslint **/*.js --fix"
+    "lint:fix": "eslint **/*.js --fix",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "",
   "license": "ISC",
@@ -30,6 +31,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "mocha": "^3.4.2",
+    "nyc": "^11.4.1",
     "supertest": "^3.0.0",
     "testdouble": "^3.2.2"
   }

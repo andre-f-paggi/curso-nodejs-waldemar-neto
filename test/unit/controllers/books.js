@@ -20,5 +20,19 @@ describe('Controllers: Books', () => {
       return booksController.getAll()
         .then(response => expect(response.data).to.be.eql(expectedResponse));
     });
+
+    it('should return statusCode 400 when something bad happens', () => {
+      const Books = {
+        findAll: td.function(),
+      };
+      const expectedResponse = { statusCode: 400 };
+      const expectedResponseData = { error: 'Random error' };
+
+      td.when(Books.findAll({})).thenReject(new Error('Random error'));
+
+      const booksController = new BooksController(Books);
+      return booksController.getAll()
+        .then(response => expect(response).to.include(expectedResponse).and.have.property('data').include(expectedResponseData));
+    });
   });
 });
